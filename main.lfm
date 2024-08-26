@@ -1,0 +1,25 @@
+object FormMain: TFormMain
+  Left = 277
+  Height = 600
+  Top = 32
+  Width = 800
+  Caption = 'FormMain'
+  OnCreate = FormCreate
+  OnMouseDown = FormMouseDown
+  OnMouseUp = FormMouseUp
+  OnPaint = FormPaint
+  LCLVersion = '3.4.0.0'
+  object TimerPhysics: TTimer
+    Interval = 16
+    OnTimer = TimerPhysicsTimer
+    Left = 8
+    Top = 8
+  end
+  object TimerMassUpdate: TTimer
+    Enabled = False
+    Interval = 16
+    OnTimer = TimerMassUpdateTimer
+    Left = 8
+    Top = 8
+  end
+end
