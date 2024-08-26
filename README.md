@@ -7,8 +7,8 @@ Implementation of simulation of interaction of bodies in a vacuum under the infl
 
 **Clone repository**
 ```bash
-git clone https://github.com/p4sttt/lazarus-firework-ultimate.git
-cd ./lazarus-firework-ultimate/
+git clone https://github.com/p4sttt/lazarus-gravity-ultimate.git
+cd lazarus-gravity-ultimate 
 ```
 
 **Run file**
