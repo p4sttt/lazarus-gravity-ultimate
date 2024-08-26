@@ -5,13 +5,16 @@ unit Main;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Body, Physics;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  StdCtrls, Body, Physics;
 
 type
 
   { TFormMain }
 
   TFormMain = class(TForm)
+    MemoBodiesState: TMemo;
+    TimerMemoUpdate: TTimer;
     TimerMassUpdate: TTimer;
     TimerPhysics: TTimer;
 
@@ -21,6 +24,7 @@ type
     procedure FormMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormPaint(Sender: TObject);
+    procedure TimerMemoUpdateTimer(Sender: TObject);
     procedure TimerMassUpdateTimer(Sender: TObject);
     procedure TimerPhysicsTimer(Sender: TObject);
   private
@@ -49,6 +53,9 @@ procedure TFormMain.FormCreate(Sender: TObject);
 begin
   FormMain.Left := (Screen.Width - ClientWidth) div 2;
   FormMain.Top := (Screen.Height - ClientHeight) div 2;
+
+  MemoBodiesState.Height := ClientHeight;
+  MemoBodiesState.Width := 180;
 
   //  саттелиты и крипоколонии
   AddBody(TBody.Create(ClientWidth div 2 - 50, ClientHeight div 2, 0, -2, 0, 0, 10));
@@ -108,6 +115,20 @@ begin
       CreationY + CreationSize div 2);
   end;
 
+end;
+
+procedure TFormMain.TimerMemoUpdateTimer(Sender: TObject);
+var
+  I: Integer;
+  BodyText: string;
+begin
+  MemoBodiesState.Lines.Clear;
+  MemoBodiesState.Lines.Add('Bodies:');
+  for I := Low(Bodies) to High(Bodies) do
+  begin
+    BodyText := Format('%d. X=%.3f; Y=%.3f;', [i, Bodies[i].X, Bodies[i].Y]);
+    MemoBodiesState.Lines.Add(BodyText);
+  end;
 end;
 
 procedure TFormMain.TimerMassUpdateTimer(Sender: TObject);

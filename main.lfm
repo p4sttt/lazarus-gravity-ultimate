@@ -1,25 +1,47 @@
 object FormMain: TFormMain
-  Left = 277
+  Left = 491
   Height = 600
-  Top = 32
+  Top = 124
   Width = 800
   Caption = 'FormMain'
+  ClientHeight = 600
+  ClientWidth = 800
+  Color = clBlack
   OnCreate = FormCreate
   OnMouseDown = FormMouseDown
   OnMouseUp = FormMouseUp
   OnPaint = FormPaint
   LCLVersion = '3.4.0.0'
+  object MemoBodiesState: TMemo
+    Left = 0
+    Height = 999
+    Top = 0
+    Width = 180
+    BorderStyle = bsNone
+    Color = clBlack
+    Lines.Strings = (
+      'MemoBodiesState'
+    )
+    ReadOnly = True
+    TabOrder = 0
+  end
   object TimerPhysics: TTimer
     Interval = 16
     OnTimer = TimerPhysicsTimer
-    Left = 8
-    Top = 8
+    Left = 744
+    Top = 88
   end
   object TimerMassUpdate: TTimer
     Enabled = False
     Interval = 16
     OnTimer = TimerMassUpdateTimer
-    Left = 8
-    Top = 8
+    Left = 744
+    Top = 16
+  end
+  object TimerMemoUpdate: TTimer
+    Interval = 16
+    OnTimer = TimerMemoUpdateTimer
+    Left = 744
+    Top = 176
   end
 end
