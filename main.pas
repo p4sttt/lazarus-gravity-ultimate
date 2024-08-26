@@ -35,6 +35,7 @@ type
 
 const
   MassGrowthRate = 0.1;
+  InitialCreationMass = 5;
 
 var
   FormMain: TFormMain;
@@ -50,8 +51,8 @@ begin
   FormMain.Top := (Screen.Height - ClientHeight) div 2;
 
   //  саттелиты и крипоколонии
-  AddBody(TBody.Create(ClientWidth div 2 - 50, ClientHeight div 2, 0, -1.5, 0, 0, 10));
-  AddBody(TBody.Create(ClientWidth div 2 + 50, ClientHeight div 2, 0, 1.5, 0, 0, 10));
+  AddBody(TBody.Create(ClientWidth div 2 - 50, ClientHeight div 2, 0, -2, 0, 0, 10));
+  AddBody(TBody.Create(ClientWidth div 2 + 50, ClientHeight div 2, 0, 2, 0, 0, 10));
   //  ОР_БИТА
   AddBody(TBody.Create(ClientWidth div 2, ClientHeight div 2, 0, 0, 0, 0, 10));
 end;
@@ -60,7 +61,7 @@ procedure TFormMain.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   CreationPos := ScreenToClient(Mouse.CursorPos);
-  CreationMass := 5;
+  CreationMass := InitialCreationMass;
   TimerMassUpdate.Enabled := True;
 end;
 
