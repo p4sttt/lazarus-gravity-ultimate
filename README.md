@@ -1,7 +1,7 @@
 
 # Gravity Ultimate
 
-A simple physical simulation of the effect of a firework explosion
+Implementation of simulation of interaction of bodies in a vacuum under the influence of the force of gravitational interaction 
 
 ## Installation & Usage
 
